@@ -63,6 +63,9 @@ class Assert {
     }
 
     private static function dump($var): string {
-        return str_replace("\n", "", print_r($var, true));
+        if (is_array($var) || is_object($var)) {
+            return json_encode($var, JSON_PRETTY_PRINT);
+        }
+        return (string) $var;
     }
 }
