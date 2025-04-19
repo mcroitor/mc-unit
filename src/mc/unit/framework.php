@@ -1,8 +1,8 @@
 <?php
 
-namespace mc\unit;
+namespace Mc\Unit;
 
-use \mc\unit\Unit;
+use \Mc\Unit\Unit;
 
 /**
  * The unit test framework

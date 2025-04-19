@@ -9,9 +9,9 @@ Simple PHP unit test framework.
 ```php
 // include the mc-unit framework
 
-use mc\unit\Assert;
-use mc\unit\Test;
-use mc\unit\Framework;
+use Mc\Unit\Assert;
+use Mc\Unit\Test;
+use Mc\Unit\Framework;
 
 // test function
 function simple_test() {
@@ -32,10 +32,10 @@ $framework->PrintInfo();
 ```php
 // include the mc-unit framework
 
-use mc\unit\Unit;
-use mc\unit\Assert;
-use mc\unit\Test;
-use mc\unit\Framework;
+use Mc\Unit\Unit;
+use Mc\Unit\Assert;
+use Mc\Unit\Test;
+use Mc\Unit\Framework;
 
 #[Unit]
 function simple_test() {

@@ -1,6 +1,6 @@
 <?php
 
-namespace mc\unit;
+namespace Mc\Unit;
 
 /**
  * Test Wrapper

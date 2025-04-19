@@ -1,6 +1,6 @@
 <?php
 
-namespace mc\unit;
+namespace Mc\Unit;
 
 /**
  * Assert class, used to perform unit tests.
