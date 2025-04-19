@@ -1,5 +1,5 @@
 <?php
 
-namespace mc\unit;
+namespace Mc\Unit;
 
 class Unit{}
