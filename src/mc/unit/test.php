@@ -2,6 +2,8 @@
 
 namespace Mc\Unit;
 
+use \Mc\Unit\Assert;
+
 /**
  * Test Wrapper
  */
@@ -9,6 +11,8 @@ class Test{
     private string $function = "";
     private bool $result = false;
     private bool $done = false;
+    private int $totalAssertions = 0;
+    private int $passedAssertions = 0;
 
     /**
      * Constructor, set the function name
@@ -29,11 +33,14 @@ class Test{
      */
     public function Run(): bool {
         $this->done = true;
+        Assert::Reset();
         try {
             echo "[INFO] running test: `{$this->function}`" . PHP_EOL;
             $functionName = $this->function;
             $this->result = $functionName();
-            echo "[INFO] test `{$this->function}` is " . ($this->result ? "passed" : "failed") . PHP_EOL;
+            $this->totalAssertions = Assert::Total();
+            $this->passedAssertions = Assert::Passed();
+            echo "[INFO] test `{$this->function}` is " . ($this->result ? "passed" : "failed") . ", Passed {$this->passedAssertions} of {$this->totalAssertions} assertions." . PHP_EOL;
         }
         catch(\Exception $e) {
             $this->result = false;
@@ -57,5 +64,21 @@ class Test{
      */
     public function IsInvoked(): bool {
         return $this->done;
+    }
+
+    /**
+     * Get the total number of assertions
+     * @return int
+     */
+    public function GetTotalAssertions(): int {
+        return $this->totalAssertions;
+    }
+
+    /**
+     * Get the number of passed assertions
+     * @return int
+     */
+    public function GetPassedAssertions(): int {
+        return $this->passedAssertions;
     }
 }
