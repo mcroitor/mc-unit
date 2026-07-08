@@ -58,7 +58,6 @@ class Framework {
      */
     public function Reset() {
         $this->passed = 0;
-        Assert::Reset();
     }
 
     /**
@@ -75,7 +74,7 @@ class Framework {
      * @param string $testName
      * @return void
      */
-    public function RunTest($testName): void {
+    public function RunTest(string $testName): void {
         if(empty($this->tests[$testName])){
             echo "[WARN] test {$testName} was not found." . PHP_EOL;
             return;
@@ -129,9 +128,15 @@ class Framework {
      * @return void
      */
     public function PrintInfo(): void {
+        $totalAssertions = 0;
+        $passedAssertions = 0;
+        foreach($this->tests as $testName => $test){
+            $totalAssertions += $test->GetTotalAssertions();
+            $passedAssertions += $test->GetPassedAssertions();
+        }
         echo "=============== TESTS ================" . PHP_EOL;
         echo "total: {$this->TotalTests()}, passed: {$this->TotalPassed()}, failed: {$this->TotalFailed()}" . PHP_EOL;
         echo "============== ASSERTS ===============" . PHP_EOL;
-        echo "total: " . Assert::Total() . ", passed: " . Assert::Passed() . ", failed: " . Assert::Failed() . PHP_EOL;
+        echo "total: {$totalAssertions}, passed: {$passedAssertions}, failed: " . ($totalAssertions - $passedAssertions) . PHP_EOL;
     }
 }
