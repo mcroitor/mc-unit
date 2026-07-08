@@ -2,12 +2,9 @@
 // include the mc-unit framework
 
 include_once __DIR__ ."/../src/mc/unit/assert.php";
+include_once __DIR__ ."/../src/mc/unit/unit.php";
 include_once __DIR__ ."/../src/mc/unit/test.php";
 include_once __DIR__ ."/../src/mc/unit/framework.php";
-
-use Mc\Unit\Unit;
-use Mc\Unit\Assert;
-use Mc\Unit\Framework;
 
 #[Unit]
 function simple_test() {
