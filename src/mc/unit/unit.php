@@ -4,5 +4,5 @@ namespace Mc\Unit;
 
 use Attribute;
 
-#[Attribute(Attribute::TARGET_CLASS)]
+#[Attribute(Attribute::TARGET_FUNCTION)]
 class Unit{}
